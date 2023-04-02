@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  username: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: drawning_save
+
+test:
+  <<: *default
+  database: drawning_save_test
+
+production:
+  <<: *default
+  database: drawning_save_pro
